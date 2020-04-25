@@ -2,8 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback, Button } from 'react-native';
 
 export default function App() {
-  const buttonPress= () => {
-    alert("Ya corona kuch nae ha sb yahodi sazish ha!")
+  const buttonPress= (msg) => {
+    alert("Ya corona kuch nae ha sb "+msg+" sazish ha!")
+
   }
   return (
     <View style={styles.container}>
@@ -17,7 +18,7 @@ export default function App() {
       Ma nahi btaon ga!!
       
       </Text>
-      <Button title='Corona?' onPress={buttonPress}>
+      <Button title='Corona?' onPress={buttonPress.bind("yahodi")}>
         
       </Button>
     </View>
