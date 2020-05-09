@@ -11,6 +11,11 @@ export default function App(){
     setList([...getList,{key:Math.random().toString(),data:getText}])
     setText("");
   }
+  if (getText.length<=0){
+    var addBt=0;
+  }else{
+    var addBt=25
+  }
   const removeItem= (itemKey)=>{
     
     setList(list => getList.filter(item=>item.key!=itemKey))
@@ -28,9 +33,9 @@ export default function App(){
               onChangeText={text=>setText(text)}
               value={getText}
             />
-            <TouchableOpacity onPress={addItem}>
+            <TouchableOpacity onPress={addItem} disabled={getText.length<=0}>
               <Image
-                style={styles.tinyLogo}
+                style={{...styles.addBton, width:addBt, height:addBt}}
                 source={require("C:/Users/mubee/expoApp/images/add.png")}
               />
             </TouchableOpacity>
@@ -80,6 +85,10 @@ const styles = StyleSheet.create({
     borderRadius:4,
   },
   tinyLogo: {
+    width: 25,
+    height: 25,
+  },
+  addBton: {
     width: 25,
     height: 25,
   },
